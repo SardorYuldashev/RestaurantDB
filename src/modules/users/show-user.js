@@ -11,8 +11,7 @@ const showUser = async ({ id }) => {
       'username',
       'role',
       'updated_at',
-      'created_at',
-      'is_deleted'
+      'created_at'
     )
     .first();
 

@@ -15,3 +15,9 @@ exports.getCategoriesSchema = {
     sort_order: Joi.string().valid('asc', 'desc')
   })
 };
+
+exports.getCategorySchema = {
+  params: Joi.object({
+    id: Joi.number().integer()
+  })
+};

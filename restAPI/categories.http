@@ -10,4 +10,8 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWlu
 
 
 ### Get categories
-GET http://localhost:3000/categories?q=kech
+GET http://localhost:3000/categories
+
+
+### Show category
+GET http://localhost:3000/categories/1
