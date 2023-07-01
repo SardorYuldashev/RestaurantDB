@@ -8,7 +8,8 @@ Content-Type: application/json
 }
 
 ### Get users
-GET http://localhost:3000/users?sort_by=created_at
+GET http://localhost:3000/users
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg4MjEyNTYzLCJleHAiOjE2ODgzODUzNjN9.MEmU0n12sq-OUHwN-DsQs7H1N9QAQqAFNrDRHXL8qbE
 
 
 ### Get single user
