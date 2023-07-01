@@ -1,11 +1,18 @@
 const express = require('express');
 const httpValidator = require('../../shared/http-validator');
-const { showUserSchema, getUsersSchema, loginUserSchema, postUserSchema, patchtUserSchema } = require('./_schemas');
+const { 
+  showUserSchema,
+  getUsersSchema,
+  loginUserSchema,
+  postUserSchema,
+  patchtUserSchema,
+  deleteUserSchema } = require('./_schemas');
 const listUsers = require('./list-users');
 const showUser = require('./show-user');
 const login = require('./login-user');
 const registration = require('./post-user');
 const editUser = require('./edit-user');
+const removeUser = require('./delete-user');
 
 /**
  * @param {express.Request} req 
@@ -92,10 +99,28 @@ const getUser = async (req, res, next) => {
   };
 };
 
+/**
+ * @param {express.Request} req 
+ * @param {express.Response} res 
+ * @param {express.NextFunction} next 
+ */
+const deleteUser = async (req, res, next) => {
+  try {
+    httpValidator({ params: req.params }, deleteUserSchema);
+
+    const result = await removeUser({ id: req.params.id });
+
+    res.status(200).json(result);
+  } catch (error) {
+    next(error);
+  };
+};
+
 module.exports = {
   loginUser,
   postUser,
   patchUser,
   getUsers,
-  getUser
+  getUser,
+  deleteUser
 };

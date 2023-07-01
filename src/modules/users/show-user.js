@@ -16,9 +16,9 @@ const showUser = async ({ id }) => {
     )
     .first();
 
-    if(!user) {
-      throw new NotFoundError(`Foydalanuvchi topilmadi`);
-    };
+  if (!user) {
+    throw new NotFoundError(`Foydalanuvchi topilmadi`);
+  };
 
   return {
     data: user

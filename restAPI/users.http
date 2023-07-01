@@ -42,5 +42,10 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWlu
 
 
 ### Get single user
-GET http://localhost:3000/users/12
+GET http://localhost:3000/users/13
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg4MjEyNTYzLCJleHAiOjE2ODgzODUzNjN9.MEmU0n12sq-OUHwN-DsQs7H1N9QAQqAFNrDRHXL8qbE
+
+
+### Get single user
+DELETE http://localhost:3000/users/13
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg4MjEyNTYzLCJleHAiOjE2ODgzODUzNjN9.MEmU0n12sq-OUHwN-DsQs7H1N9QAQqAFNrDRHXL8qbE

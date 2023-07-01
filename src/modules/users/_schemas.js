@@ -46,3 +46,9 @@ exports.getUsersSchema = {
     sort_order: Joi.string().valid('asc', 'desc')
   })
 };
+
+exports.deleteUserSchema = {
+  params: Joi.object({
+    id: Joi.number().integer()
+  })
+};
