@@ -14,9 +14,9 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWlu
 Content-Type: application/json
 
 {
-  "first_name": "Iroda",
-  "last_name": "Nosirova",
-  "username": "iroda",
+  "first_name": "Shavkat",
+  "last_name": "Mirziyoyev",
+  "username": "shavkat",
   "password": "123456",
   "role": "ofitsant(ka)"
 }

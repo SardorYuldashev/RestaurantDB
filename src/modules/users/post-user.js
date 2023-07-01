@@ -9,7 +9,7 @@ const registration = async ({ first_name, last_name, username, password, role })
       first_name,
       last_name,
       username,
-      password,
+      password: hashPassword,
       role,
       is_deleted: false
     })
