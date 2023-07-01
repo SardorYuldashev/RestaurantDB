@@ -1,4 +1,5 @@
 const db = require('../../db');
+const { NotFoundError } = require('../../shared/errors');
 
 const showUser = async ({ id }) => {
   const user = await db('users')
@@ -13,6 +14,10 @@ const showUser = async ({ id }) => {
       'created_at'
     )
     .first();
+
+    if(!user) {
+      throw new NotFoundError(`Foydalanuvchi topilmadi`);
+    }
 
   return {
     data: user

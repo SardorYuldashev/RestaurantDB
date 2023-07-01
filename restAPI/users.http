@@ -3,4 +3,4 @@ GET http://localhost:3000/users
 
 
 ### Get single user
-GET http://localhost:3000/users/3
+GET http://localhost:3000/users/5
