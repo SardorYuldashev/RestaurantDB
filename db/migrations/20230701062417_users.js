@@ -9,9 +9,10 @@ exports.up = function(knex) {
     table.string('last_name', 50).notNullable();
     table.string('username', 15).unique().notNullable();
     table.string('password', 350).notNullable();
+    table.enum('role', ['ofisant(ka)', 'admin', 'super_admin']);
     table.boolean('is_deleted').defaultTo(false);
     table.timestamps(true, true);
-  })
+  });
 };
 
 /**

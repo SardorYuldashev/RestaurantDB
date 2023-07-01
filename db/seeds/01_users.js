@@ -13,7 +13,8 @@ exports.seed = async function (knex) {
       first_name: 'Sardor',
       last_name: 'Yuldashev',
       username: 'sardorbek',
-      password: bcrypt.hashSync('123456', 10),
+      password: bcrypt.hashSync('12345678', 10),
+      role: 'super_admin',
       is_deleted: false
     },
     {
@@ -22,6 +23,7 @@ exports.seed = async function (knex) {
       last_name: 'Abdusalimov',
       username: 'imron',
       password: bcrypt.hashSync('123456', 10),
+      role: 'admin',
       is_deleted: false
     },
     {
@@ -30,6 +32,7 @@ exports.seed = async function (knex) {
       last_name: 'Nabiyev',
       username: 'aziz',
       password: bcrypt.hashSync('123456', 10),
+      role: 'ofisant(ka)',
       is_deleted: false
     }
   ]);
