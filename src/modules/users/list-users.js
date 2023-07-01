@@ -21,6 +21,8 @@ const listUsers = async ({ q, role, limit = 10, offset = 0, sort_by = 'updated_a
     dbQuery.andWhereILike('first_name', `%${q}%`).orWhereILike('last_name', `%${q}%`);
   };
 
+  const total = await dbQuery.clone().count().groupBy('id');
+
   dbQuery.orderBy(sort_by, sort_order);
 
   dbQuery.limit(limit).offset(offset);
@@ -30,7 +32,7 @@ const listUsers = async ({ q, role, limit = 10, offset = 0, sort_by = 'updated_a
   return {
     list,
     pageInfo: {
-      count: list.length,
+      total: total.length,
       offset,
       limit
     }
