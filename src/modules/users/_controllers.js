@@ -1,6 +1,6 @@
 const express = require('express');
 const httpValidator = require('../../shared/http-validator');
-const { 
+const {
   showUserSchema,
   getUsersSchema,
   loginUserSchema,
@@ -21,7 +21,7 @@ const removeUser = require('./delete-user');
  */
 const loginUser = async (req, res, next) => {
   try {
-    httpValidator({body: req.body}, loginUserSchema);
+    httpValidator({ body: req.body }, loginUserSchema);
 
     const result = await login(req.body);
 
@@ -38,7 +38,7 @@ const loginUser = async (req, res, next) => {
  */
 const postUser = async (req, res, next) => {
   try {
-    httpValidator({body: req.body}, postUserSchema);
+    httpValidator({ body: req.body }, postUserSchema);
 
     const result = await registration(req.body);
 
@@ -55,7 +55,7 @@ const postUser = async (req, res, next) => {
  */
 const patchUser = async (req, res, next) => {
   try {
-    httpValidator({body: req.body, params: req.params}, patchtUserSchema);
+    httpValidator({ body: req.body, params: req.params }, patchtUserSchema);
 
     const result = await editUser(req.body, req.params);
 

@@ -15,7 +15,7 @@ const registration = async ({ first_name, last_name, username, password, role })
     })
     .returning('*');
 
-  return {new_user: result};
+  return { new_user: result };
 };
 
 module.exports = registration;

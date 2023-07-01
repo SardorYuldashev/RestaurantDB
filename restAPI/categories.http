@@ -1,0 +1,13 @@
+### Add category
+### Add category
+POST http://localhost:3000/categories
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg4MjEyNTYzLCJleHAiOjE2ODgzODUzNjN9.MEmU0n12sq-OUHwN-DsQs7H1N9QAQqAFNrDRHXL8qbE
+
+{
+  "name": "Kechkiovqat"
+}
+
+
+### Get categories
+GET http://localhost:3000/categories?q=kech
