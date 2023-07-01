@@ -1,8 +1,26 @@
 const express = require('express');
 const listUsers = require('./list-users');
 const showUser = require('./show-user');
+const login = require('./loginUser');
 const httpValidator = require('../../shared/http-validator');
 const { showUserSchema, getUsersSchema } = require('./_schemas');
+
+/**
+ * @param {express.Request} req 
+ * @param {express.Response} res 
+ * @param {express.NextFunction} next 
+ */
+const loginUser = async (req, res, next) => {
+  try {
+    // httpValidator();
+
+    const result = await login(req.body);
+
+    res.status(200).json(result);
+  } catch (error) {
+    next(error);
+  };
+};
 
 /**
  * @param {express.Request} req 
@@ -39,6 +57,7 @@ const getUser = async (req, res, next) => {
 };
 
 module.exports = {
+  loginUser,
   getUsers,
   getUser
 };

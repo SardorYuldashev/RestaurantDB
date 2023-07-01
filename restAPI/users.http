@@ -1,3 +1,12 @@
+### Login
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "username": "imron",
+  "password": "123456"
+}
+
 ### Get users
 GET http://localhost:3000/users?sort_by=created_at
 
