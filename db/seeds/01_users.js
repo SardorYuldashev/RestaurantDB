@@ -32,7 +32,70 @@ exports.seed = async function (knex) {
       last_name: 'Nabiyev',
       username: 'aziz',
       password: bcrypt.hashSync('123456', 10),
-      role: 'ofisant(ka)',
+      role: 'admin',
+      is_deleted: false
+    },
+    {
+      // id: 4,
+      first_name: 'Sherzod',
+      last_name: 'Arziyev',
+      username: 'sherzod',
+      password: bcrypt.hashSync('123456', 10),
+      role: 'admin',
+      is_deleted: false
+    },
+    {
+      // id: 5,
+      first_name: 'Nigina',
+      last_name: 'Mannonova',
+      username: 'nigina',
+      password: bcrypt.hashSync('123456', 10),
+      role: 'ofitsant(ka)',
+      is_deleted: false
+    },
+    {
+      // id: 6,
+      first_name: 'Shoxida',
+      last_name: 'Mannonova',
+      username: 'shoxida',
+      password: bcrypt.hashSync('123456', 10),
+      role: 'ofitsant(ka)',
+      is_deleted: false
+    },
+    {
+      // id: 7,
+      first_name: 'Oybek',
+      last_name: 'Xasanov',
+      username: 'oybek',
+      password: bcrypt.hashSync('123456', 10),
+      role: 'ofitsant(ka)',
+      is_deleted: false
+    },
+    {
+      // id: 8,
+      first_name: 'Toxir',
+      last_name: 'Sodiqov',
+      username: 'toxir',
+      password: bcrypt.hashSync('123456', 10),
+      role: 'ofitsant(ka)',
+      is_deleted: false
+    },
+    {
+      // id: 9,
+      first_name: 'Jahongir',
+      last_name: 'Otajonov',
+      username: 'jahongir',
+      password: bcrypt.hashSync('123456', 10),
+      role: 'ofitsant(ka)',
+      is_deleted: false
+    },
+    {
+      // id: 10,
+      first_name: 'Munisa',
+      last_name: 'Rizayeva',
+      username: 'munisa',
+      password: bcrypt.hashSync('123456', 10),
+      role: 'ofitsant(ka)',
       is_deleted: false
     }
   ]);

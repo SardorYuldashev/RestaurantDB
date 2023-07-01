@@ -5,7 +5,17 @@ exports.loginUserSchema = {
     username: Joi.string().required().max(15),
     password: Joi.string().required()
   })
-}
+};
+
+exports.postUserSchema = {
+  body: Joi.object({
+    first_name: Joi.string().required().max(50),
+    last_name: Joi.string().required().max(50),
+    username: Joi.string().required().max(15),
+    password: Joi.string().required(),
+    role: Joi.string().valid('admin', 'super_admin', 'ofitsant(ka)'),
+  })
+};
 
 exports.showUserSchema = {
   params: Joi.object({
@@ -16,7 +26,7 @@ exports.showUserSchema = {
 exports.getUsersSchema = {
   query: Joi.object({
     q: Joi.string(),
-    role: Joi.string().valid('admin', 'super_admin', 'ofisant(ka)'),
+    role: Joi.string().valid('admin', 'super_admin', 'ofitsant(ka)'),
     limit: Joi.number().integer(),
     offset: Joi.number().integer(),
     sort_by: Joi.string().valid('updated_at', 'created_at'),

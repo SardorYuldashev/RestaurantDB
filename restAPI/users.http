@@ -1,11 +1,26 @@
 ### Login
-POST http://localhost:3000/users
+POST http://localhost:3000/users/login
 Content-Type: application/json
 
 {
-  "username": "imron",
+  "username": "nigina",
   "password": "123456"
 }
+
+
+### Registration
+POST http://localhost:3000/users
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg4MjEyNTYzLCJleHAiOjE2ODgzODUzNjN9.MEmU0n12sq-OUHwN-DsQs7H1N9QAQqAFNrDRHXL8qbE
+Content-Type: application/json
+
+{
+  "first_name": "Iroda",
+  "last_name": "Nosirova",
+  "username": "iroda",
+  "password": "123456",
+  "role": "ofitsant(ka)"
+}
+
 
 ### Get users
 GET http://localhost:3000/users
@@ -13,4 +28,5 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWlu
 
 
 ### Get single user
-GET http://localhost:3000/users/3
+GET http://localhost:3000/users/12
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg4MjEyNTYzLCJleHAiOjE2ODgzODUzNjN9.MEmU0n12sq-OUHwN-DsQs7H1N9QAQqAFNrDRHXL8qbE
