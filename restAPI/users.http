@@ -23,16 +23,12 @@ Content-Type: application/json
 
 
 ### Registration
-PATCH http://localhost:3000/users/13
+PATCH http://localhost:3000/users/5
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg4MjEyNTYzLCJleHAiOjE2ODgzODUzNjN9.MEmU0n12sq-OUHwN-DsQs7H1N9QAQqAFNrDRHXL8qbE
 Content-Type: application/json
 
 {
-  "first_name": "Shavkat",
-  "last_name": "Mirziyoyev",
-  "username": "shavkat",
-  "password": "123456",
-  "role": "ofitsant(ka)"
+  "first_name": "Nigina"
 }
 
 
@@ -42,7 +38,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWlu
 
 
 ### Get single user
-GET http://localhost:3000/users/13
+GET http://localhost:3000/users/5
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg4MjEyNTYzLCJleHAiOjE2ODgzODUzNjN9.MEmU0n12sq-OUHwN-DsQs7H1N9QAQqAFNrDRHXL8qbE
 
 

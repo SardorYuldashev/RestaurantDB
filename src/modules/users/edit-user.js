@@ -17,10 +17,12 @@ const editUser = async (body, params) => {
     values.password = await bcrypt.hash(values.password, 10);
   };
 
+  values.updated_at = db.fn.now();
+
   const updated = await db('users')
     .where({ id })
     .update({ ...values })
-    .returning(['id', 'first_name', 'last_name', 'username', 'role']);
+    .returning(['id', 'first_name', 'last_name', 'username', 'role', 'updated_at', 'created_at']);
 
   return { updated: updated[0] };
 };

@@ -4,11 +4,13 @@ const {
   postCategorySchema,
   getCategoriesSchema,
   getCategorySchema, 
-  deleteCategorySchema} = require('./_schemas');
+  deleteCategorySchema,
+  editCategorySchema} = require('./_schemas');
 const addCategory = require('./add-category');
 const listCategories = require('./list-categories');
 const showCategory = require('./show-category');
-const removecategory = require('./delete-category');
+const removeCategory = require('./delete-category');
+const editCategory = require('./edit-category');
 
 /**
  * @param {express.Request} req 
@@ -70,7 +72,24 @@ const deleteCategory = async (req, res, next) => {
   try {
     httpValidator({ params: req.params }, deleteCategorySchema);
 
-    const result = await removecategory(req.params);
+    const result = await removeCategory(req.params);
+
+    res.status(200).json(result);
+  } catch (error) {
+    next(error);
+  };
+};
+
+/**
+ * @param {express.Request} req 
+ * @param {express.Response} res 
+ * @param {express.NextFunction} next 
+ */
+const patchCategory = async (req, res, next) => {
+  try {
+    httpValidator({ params: req.params, body: req.body }, editCategorySchema);
+
+    const result = await editCategory(req.params, req.body);
 
     res.status(200).json(result);
   } catch (error) {
@@ -82,5 +101,6 @@ module.exports = {
   postCategory,
   getCategories,
   getCategory,
-  deleteCategory
+  deleteCategory,
+  patchCategory
 };

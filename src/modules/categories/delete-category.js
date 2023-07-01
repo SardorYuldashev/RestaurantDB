@@ -1,7 +1,7 @@
 const db = require('../../db');
 const { NotFoundError } = require('../../shared/errors');
 
-const removecategory = async ({ id }) => {
+const removeCategory = async ({ id }) => {
   const existing = await db('categories').where({ id }).first();
 
   if (!existing) {
@@ -18,4 +18,4 @@ const removecategory = async ({ id }) => {
   };
 };
 
-module.exports = removecategory;
+module.exports = removeCategory;

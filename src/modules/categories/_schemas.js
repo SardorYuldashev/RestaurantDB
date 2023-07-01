@@ -6,6 +6,15 @@ exports.postCategorySchema = {
   })
 };
 
+exports.editCategorySchema = {
+  body: Joi.object({
+    name: Joi.string().max(100)
+  }),
+  params: Joi.object({
+    id: Joi.number().integer()
+  })
+};
+
 exports.getCategoriesSchema = {
   query: Joi.object({
     q: Joi.string(),
