@@ -3,7 +3,7 @@ const { NotFoundError } = require('../../shared/errors');
 
 const showUser = async ({ id }) => {
   const user = await db('users')
-    .where({ id })
+    .where({ id, is_deleted: false })
     .select(
       'id',
       'first_name',
@@ -11,13 +11,14 @@ const showUser = async ({ id }) => {
       'username',
       'role',
       'updated_at',
-      'created_at'
+      'created_at',
+      'is_deleted'
     )
     .first();
 
     if(!user) {
       throw new NotFoundError(`Foydalanuvchi topilmadi`);
-    }
+    };
 
   return {
     data: user

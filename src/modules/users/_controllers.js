@@ -2,7 +2,7 @@ const express = require('express');
 const listUsers = require('./list-users');
 const showUser = require('./show-user');
 const httpValidator = require('../../shared/http-validator');
-const { getUserSchema } = require('./_schemas');
+const { showUserSchema, getUsersSchema } = require('./_schemas');
 
 /**
  * @param {express.Request} req 
@@ -11,7 +11,9 @@ const { getUserSchema } = require('./_schemas');
  */
 const getUsers = async (req, res, next) => {
   try {
-    const result = await listUsers();
+    httpValidator({ query: req.query }, getUsersSchema);
+
+    const result = await listUsers(req.query);
 
     res.status(200).json(result);
   } catch (error) {
@@ -26,8 +28,8 @@ const getUsers = async (req, res, next) => {
  */
 const getUser = async (req, res, next) => {
   try {
-    httpValidator({params: req.params}, getUserSchema);
-    
+    httpValidator({ params: req.params }, showUserSchema);
+
     const result = await showUser({ id: req.params.id });
 
     res.status(200).json(result);
