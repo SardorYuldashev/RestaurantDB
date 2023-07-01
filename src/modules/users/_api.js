@@ -1,15 +1,14 @@
 const { isLoggedIn, hasRole } = require('../../shared/auth');
-const { getUsers, getUser, loginUser, postUser } = require('./_controllers');
+const { getUsers, getUser, loginUser, postUser, patchUser } = require('./_controllers');
 
 const router = require('express').Router();
 
-const mGetUsers = [isLoggedIn, hasRole(['super_admin', 'admin'])];
-const mGetUser = [isLoggedIn, hasRole(['super_admin', 'admin'])];
-const mPostUser = [isLoggedIn, hasRole(['super_admin', 'admin'])];
+const accessСheck = [isLoggedIn, hasRole(['super_admin', 'admin'])];
 
 router.post('/users/login', loginUser);
-router.post('/users', mPostUser, postUser);
-router.get('/users', mGetUsers, getUsers);
-router.get('/users/:id', mGetUser, getUser);
+router.post('/users', accessСheck, postUser);
+router.get('/users', accessСheck, getUsers);
+router.get('/users/:id', accessСheck, getUser);
+router.patch('/users/:id', accessСheck, patchUser);
 
 module.exports = router;

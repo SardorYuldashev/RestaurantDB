@@ -1,10 +1,11 @@
 const express = require('express');
+const httpValidator = require('../../shared/http-validator');
+const { showUserSchema, getUsersSchema, loginUserSchema, postUserSchema, patchtUserSchema } = require('./_schemas');
 const listUsers = require('./list-users');
 const showUser = require('./show-user');
 const login = require('./login-user');
 const registration = require('./post-user');
-const httpValidator = require('../../shared/http-validator');
-const { showUserSchema, getUsersSchema, loginUserSchema, postUserSchema } = require('./_schemas');
+const editUser = require('./edit-user');
 
 /**
  * @param {express.Request} req 
@@ -33,6 +34,23 @@ const postUser = async (req, res, next) => {
     httpValidator({body: req.body}, postUserSchema);
 
     const result = await registration(req.body);
+
+    res.status(200).json(result);
+  } catch (error) {
+    next(error);
+  };
+};
+
+/**
+ * @param {express.Request} req 
+ * @param {express.Response} res 
+ * @param {express.NextFunction} next 
+ */
+const patchUser = async (req, res, next) => {
+  try {
+    httpValidator({body: req.body, params: req.params}, patchtUserSchema);
+
+    const result = await editUser(req.body, req.params);
 
     res.status(200).json(result);
   } catch (error) {
@@ -77,6 +95,7 @@ const getUser = async (req, res, next) => {
 module.exports = {
   loginUser,
   postUser,
+  patchUser,
   getUsers,
   getUser
 };

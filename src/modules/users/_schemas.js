@@ -13,7 +13,20 @@ exports.postUserSchema = {
     last_name: Joi.string().required().max(50),
     username: Joi.string().required().max(15),
     password: Joi.string().required(),
+    role: Joi.string().required().valid('admin', 'super_admin', 'ofitsant(ka)'),
+  })
+};
+
+exports.patchtUserSchema = {
+  body: Joi.object({
+    first_name: Joi.string().max(50),
+    last_name: Joi.string().max(50),
+    username: Joi.string().max(15),
+    password: Joi.string(),
     role: Joi.string().valid('admin', 'super_admin', 'ofitsant(ka)'),
+  }),
+  params: Joi.object({
+    id: Joi.number().integer()
   })
 };
 

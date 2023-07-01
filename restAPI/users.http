@@ -22,6 +22,20 @@ Content-Type: application/json
 }
 
 
+### Registration
+PATCH http://localhost:3000/users/13
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg4MjEyNTYzLCJleHAiOjE2ODgzODUzNjN9.MEmU0n12sq-OUHwN-DsQs7H1N9QAQqAFNrDRHXL8qbE
+Content-Type: application/json
+
+{
+  "first_name": "Shavkat",
+  "last_name": "Mirziyoyev",
+  "username": "shavkat",
+  "password": "123456",
+  "role": "ofitsant(ka)"
+}
+
+
 ### Get users
 GET http://localhost:3000/users
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjg4MjEyNTYzLCJleHAiOjE2ODgzODUzNjN9.MEmU0n12sq-OUHwN-DsQs7H1N9QAQqAFNrDRHXL8qbE
