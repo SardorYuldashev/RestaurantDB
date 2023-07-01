@@ -1,6 +1,6 @@
 const express = require('express');
 const config = require('./shared/config');
-const userRoute = require('./modules/users/api');
+const userRoute = require('./modules/users/_api');
 const handleError = require('./shared/errors/handle');
 
 const app = express();

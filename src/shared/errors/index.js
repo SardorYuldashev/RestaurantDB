@@ -3,7 +3,7 @@ class BadRequestError extends Error {
     super(msg);
 
     if (Error.captureStackTrace) {
-      Error.captureStackTrace(this, BadRequest);
+      Error.captureStackTrace(this, BadRequestError);
     };
   };
 };
@@ -23,7 +23,7 @@ class UnauthorizedError extends Error {
     super(msg);
 
     if (Error.captureStackTrace) {
-      Error.captureStackTrace(this, Unauthorized);
+      Error.captureStackTrace(this, UnauthorizedError);
     };
   };
 };
@@ -33,7 +33,7 @@ class ForbiddenError extends Error {
     super(msg);
 
     if (Error.captureStackTrace) {
-      Error.captureStackTrace(this, Unauthorized);
+      Error.captureStackTrace(this, ForbiddenError);
     };
   };
 };

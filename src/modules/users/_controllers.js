@@ -1,6 +1,8 @@
 const express = require('express');
 const listUsers = require('./list-users');
-const showUser = require('./sow-user');
+const showUser = require('./show-user');
+const httpValidator = require('../../shared/http-validator');
+const { getUserSchema } = require('./_schemas');
 
 /**
  * @param {express.Request} req 
@@ -24,6 +26,8 @@ const getUsers = async (req, res, next) => {
  */
 const getUser = async (req, res, next) => {
   try {
+    httpValidator({params: req.params}, getUserSchema);
+    
     const result = await showUser({ id: req.params.id });
 
     res.status(200).json(result);
