@@ -3,10 +3,12 @@ const httpValidator = require('../../shared/http-validator');
 const {
   postCategorySchema,
   getCategoriesSchema,
-  getCategorySchema } = require('./_schemas');
+  getCategorySchema, 
+  deleteCategorySchema} = require('./_schemas');
 const addCategory = require('./add-category');
 const listCategories = require('./list-categories');
 const showCategory = require('./show-category');
+const removecategory = require('./delete-category');
 
 /**
  * @param {express.Request} req 
@@ -59,8 +61,26 @@ const getCategory = async (req, res, next) => {
   };
 };
 
+/**
+ * @param {express.Request} req 
+ * @param {express.Response} res 
+ * @param {express.NextFunction} next 
+ */
+const deleteCategory = async (req, res, next) => {
+  try {
+    httpValidator({ params: req.params }, deleteCategorySchema);
+
+    const result = await removecategory(req.params);
+
+    res.status(200).json(result);
+  } catch (error) {
+    next(error);
+  };
+};
+
 module.exports = {
   postCategory,
   getCategories,
-  getCategory
+  getCategory,
+  deleteCategory
 };

@@ -21,3 +21,9 @@ exports.getCategorySchema = {
     id: Joi.number().integer()
   })
 };
+
+exports.deleteCategorySchema = {
+  params: Joi.object({
+    id: Joi.number().integer()
+  })
+};

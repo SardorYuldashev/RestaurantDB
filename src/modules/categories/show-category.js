@@ -1,9 +1,9 @@
 const db = require('../../db');
 const { NotFoundError } = require('../../shared/errors');
 
-const showCategory = async ({id}) => {
+const showCategory = async ({ id }) => {
   const category = await db('categories')
-    .where({id})
+    .where({ id, is_deleted: false })
     .select(
       'id',
       'name',
@@ -12,7 +12,7 @@ const showCategory = async ({id}) => {
     )
     .first();
 
-  if(!category) {
+  if (!category) {
     throw new NotFoundError('Kategoriya topilmadi');
   };
 

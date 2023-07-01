@@ -13,7 +13,9 @@ const removeUser = async ({ id }) => {
     .update({ is_deleted: true })
     .returning(['id', 'first_name', 'last_name', 'role', 'username']);
 
-  return { deleted: deleted[0] }
+  return {
+    deleted: deleted[0]
+  };
 };
 
 module.exports = removeUser;
