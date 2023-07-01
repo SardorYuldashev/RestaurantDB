@@ -3,7 +3,7 @@ const listUsers = require('./list-users');
 const showUser = require('./show-user');
 const login = require('./loginUser');
 const httpValidator = require('../../shared/http-validator');
-const { showUserSchema, getUsersSchema } = require('./_schemas');
+const { showUserSchema, getUsersSchema, loginUserSchema } = require('./_schemas');
 
 /**
  * @param {express.Request} req 
@@ -12,7 +12,7 @@ const { showUserSchema, getUsersSchema } = require('./_schemas');
  */
 const loginUser = async (req, res, next) => {
   try {
-    // httpValidator();
+    httpValidator({body: req.body}, loginUserSchema);
 
     const result = await login(req.body);
 

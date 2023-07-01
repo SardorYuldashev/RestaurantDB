@@ -1,5 +1,12 @@
 const Joi = require("joi");
 
+exports.loginUserSchema = {
+  body: Joi.object({
+    username: Joi.string().required().max(15),
+    password: Joi.string().required()
+  })
+}
+
 exports.showUserSchema = {
   params: Joi.object({
     id: Joi.number().integer()
